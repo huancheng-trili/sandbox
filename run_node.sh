@@ -50,7 +50,9 @@ EOF
         --rpc-tls "${node_dir}/tezos.crt,${node_dir}/tezos.key" \
         --expected-pow "$expected_pow" \
         --connections "$expected_connections" \
-        --metadata-size-limit unlimited --max-active-rpc-connections 2048
+        --metadata-size-limit unlimited \
+        --max-active-rpc-connections 2048 \
+        --history-mode full
 
       cat > "${node_dir}/tezos.crt" << EOF
 Certificate:
@@ -180,12 +182,14 @@ EOF
         --allow-all-rpc "0.0.0.0:$rpc" \
         --expected-pow "$expected_pow" \
         --connections "$expected_connections" \
-        --metadata-size-limit unlimited --max-active-rpc-connections 2048
+        --metadata-size-limit unlimited \
+        --max-active-rpc-connections 2048 \
+        --history-mode full
     fi
   fi
 
   [ -f "${node_dir}/identity.json" ] || $node identity generate "$expected_pow" --data-dir "$node_dir"
-  $node run --synchronisation-threshold 0 --network "sandbox" --data-dir "$node_dir" "${peers[@]}" "$sandbox_param" "$@" &
+  $node run --synchronisation-threshold 0 --network "sandbox" --data-dir "$node_dir" "${peers[@]}" "$@" &
   node_pids+=("$!")
 
 }

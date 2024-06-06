@@ -29,7 +29,7 @@
   "liquidity_baking_subsidy": "5000000",
   "liquidity_baking_toggle_ema_threshold": 1000000000,
   "max_operations_time_to_live": 360,
-  "minimal_block_delay": "5",
+  "minimal_block_delay": "3",
   "delay_increment_per_round": "2",
   "consensus_committee_size": 7000,
   "consensus_threshold": 4667,
