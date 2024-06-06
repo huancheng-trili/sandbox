@@ -1,7 +1,6 @@
 #!/bin/bash
 
 docker run -it --rm \
-  -v /Users/huanchengchang/code/tzgo/examples/tzcompose:/examples \
   -v $(pwd):/playground \
   -p 8732:8732 \
   -e TEZOS_CLIENT_DIR=/tzclient \
